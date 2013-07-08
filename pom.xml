@@ -18,7 +18,7 @@
     <maven.compiler.source>1.5</maven.compiler.source>
     <maven.compiler.target>1.5</maven.compiler.target>
     <encoding>UTF-8</encoding>
-    <scala.version>2.9.3</scala.version>
+    <scala.version>2.9.2</scala.version>
   </properties>
 
 <!--
@@ -45,6 +45,12 @@
       <version>${scala.version}</version>
     </dependency>
 
+    <dependency>
+      <groupId>org.spark-project</groupId>
+      <artifactId>spark-core_2.9.3</artifactId>
+      <version>0.7.2</version>
+    </dependency>
+
     <!-- Test -->
     <dependency>
       <groupId>junit</groupId>
@@ -53,15 +59,15 @@
       <scope>test</scope>
     </dependency>
     <dependency>
-      <groupId>org.scala-tools.testing</groupId>
-      <artifactId>specs_${scala.version}</artifactId>
-      <version>1.6.9</version>
+      <groupId>org.specs2</groupId>
+      <artifactId>specs2_${scala.version}</artifactId>
+      <version>1.12.4.1</version>
       <scope>test</scope>
     </dependency>
     <dependency>
       <groupId>org.scalatest</groupId>
-      <artifactId>scalatest</artifactId>
-      <version>1.3</version>
+      <artifactId>scalatest_${scala.version}</artifactId>
+      <version>1.9.1</version>
       <scope>test</scope>
     </dependency>
   </dependencies>
@@ -107,27 +113,27 @@
         </configuration>
       </plugin>
       <plugin>
-          <groupId>org.scalastyle</groupId>
-          <artifactId>scalastyle-maven-plugin</artifactId>
-          <version>0.3.2</version>
-          <configuration>
-              <verbose>false</verbose>
-              <failOnViolation>true</failOnViolation>
-              <includeTestSourceDirectory>true</includeTestSourceDirectory>
-              <failOnWarning>false</failOnWarning>
-              <sourceDirectory>${basedir}/src/main/scala</sourceDirectory>
-              <testSourceDirectory>${basedir}/src/test/scala</testSourceDirectory>
-              <configLocation>${basedir}/lib/scalastyle_config.xml</configLocation>
-              <outputFile>${project.basedir}/scalastyle-output.xml</outputFile>
-              <outputEncoding>UTF-8</outputEncoding>
-          </configuration>
-          <executions>
-              <execution>
-                  <goals>
-                      <goal>check</goal>
-                  </goals>
-              </execution>
-          </executions>
+        <groupId>org.scalastyle</groupId>
+        <artifactId>scalastyle-maven-plugin</artifactId>
+        <version>0.3.2</version>
+        <configuration>
+          <verbose>false</verbose>
+          <failOnViolation>true</failOnViolation>
+          <includeTestSourceDirectory>true</includeTestSourceDirectory>
+          <failOnWarning>false</failOnWarning>
+          <sourceDirectory>${basedir}/src/main/scala</sourceDirectory>
+          <testSourceDirectory>${basedir}/src/test/scala</testSourceDirectory>
+          <configLocation>${basedir}/lib/scalastyle_config.xml</configLocation>
+          <outputFile>${project.basedir}/scalastyle-output.xml</outputFile>
+          <outputEncoding>UTF-8</outputEncoding>
+        </configuration>
+        <executions>
+          <execution>
+            <goals>
+              <goal>check</goal>
+            </goals>
+          </execution>
+        </executions>
       </plugin>
     </plugins>
   </build>
